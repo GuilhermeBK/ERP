@@ -14,7 +14,7 @@ import javax.persistence.*;
 public class Pagamento {
 
     @Getter
-    public enum tipoPagamento {
+    public enum TipoPagamento {
         CARTAO_CREDITO,
         CARTAO_DEBITO,
         PIX,
@@ -25,8 +25,14 @@ public class Pagamento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private double valor;
-    private tipoPagamento tipoPagamento;
+    private Double valor;
+
+    private Double desconto;
+
+    private Double acrescimo;
+
+    @Enumerated(EnumType.STRING)
+    private TipoPagamento tipoPagamento;
 
     @ManyToOne
     private Pedido pedido;

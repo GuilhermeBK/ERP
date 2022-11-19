@@ -25,4 +25,8 @@ public class Empresa {
     @ManyToMany
     private List<Maquina> maquinas;
 
+    @CollectionTable
+    @OneToMany(orphanRemoval = true)
+    private List<ChavePix> chavePix;
+
 }

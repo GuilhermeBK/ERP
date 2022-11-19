@@ -20,10 +20,21 @@ import java.util.UUID;
 @Getter
 public class Pedido {
 
+    @Getter
+    public enum Status {
+        COTACAO,
+        PEDIDO,
+        CONCLUIDO,
+        CANCELADO
+    }
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String total;
+    private String custo;
+    private String lucro;
     private String quantidade;
     private Timestamp lastUpdateTimestamp;
     private Timestamp creationTimestamp;
@@ -46,5 +57,8 @@ public class Pedido {
 
     @ManyToOne
     private Empresa mei;
+
+    @Enumerated(EnumType.STRING)
+    private Status status;
 
 }

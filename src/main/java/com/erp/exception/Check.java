@@ -22,7 +22,7 @@ public class Check {
         }
     }
 
-    private static BusinessException newBusinessException (Exception e) {
+    public static BusinessException newBusinessException (Exception e) {
         return new BusinessException("Erro na regra de negocio: " + e.getMessage(), e);
     }
 }
